@@ -133,7 +133,6 @@ def create_user2(
 
 # Get User of Two Task --merged
 
-
 @app.get("/user/{id}/", response_description="User data retrieved")
 async def user_details(id, db: Session = Depends(get_db)):
     user_obj = db.query(models.User).filter(models.User.id == id).first()

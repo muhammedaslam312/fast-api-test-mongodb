@@ -4,8 +4,13 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+import os
+import os
+from dotenv import load_dotenv
 
-DATABASE_URL = "postgresql://postgres:9961610563@localhost/fast_api_test"
+load_dotenv(".env")
+
+DATABASE_URL = os.getenv("DATABASE_URL")
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
@@ -15,6 +20,7 @@ MONGO_URL = "mongodb://localhost:27017"
 client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_URL)
 database = client.profiles
 profile_collection = database.get_collection("profile")
+
 
 
 def profile_helper(profile) -> dict:
