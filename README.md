@@ -39,7 +39,15 @@
 4. Set up your PostgreSQL and MongoDB databases and create a .env file in the project root directory with the following content:
 
    ```bash
-   DATABASE_URL=postgresql://yourusername:yourpassword@localhost/fast_api_postgres
+   #add this in .env 
+   #set up postgres
+   DATABASE_URL=postgresql://yourusername:yourpassword@localhost/database_name
+
+   #Mongo_db setup
+   #create a database name is - profiles
+   #create a collection name is - profile
+
+
 
 5. Run the FastAPI application:
 
