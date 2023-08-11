@@ -14,7 +14,7 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     phone = Column(String)
 
-    # Create a one-to-one relationship to UserProfile
+    # relationship to UserProfile
     user_profile = relationship("UserProfile", back_populates="user")
 
 
@@ -25,7 +25,7 @@ class UserProfile(Base):
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(
         Integer, ForeignKey("users.id")
-    )  # Foreign key reference to User table
+    )  
     profile_picture = Column(String)
 
     # Create a back-reference to User
